@@ -156,4 +156,20 @@ namespace strutil {
         auto end_unique = std::unique(tokens.begin(), tokens.end());
         tokens.erase(end_unique, tokens.end());
     }
+    template<typename T>
+    void trim_left(basic_string<T>& str)
+    {
+        str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](T ch) { return !std::isspace(ch); }));
+    }
+    template<typename T>
+    void trim_right(basic_string<T>& str)
+    {
+        str.erase(std::find_if(str.rbegin(), str.rend(), [](T ch) { return !std::isspace(ch); }).base(), str.end());
+    }
+    template<typename T>
+    void trim(basic_string<T>& str)
+    {
+        trim_left(str);
+        trim_right(str);
+    }
 }

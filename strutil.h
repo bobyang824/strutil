@@ -47,7 +47,7 @@ namespace strutil {
     }
 
     template<typename T>
-    bool icompare(const T& str1, const T& str2)
+    bool iequal(const T& str1, const T& str2)
     {
         return to_lower(str1) == to_lower(str2);
     }
